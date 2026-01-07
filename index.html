@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -10,27 +11,41 @@
         body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 0; line-height: 1.6; }
         .container { max-width: 900px; margin: auto; padding: 20px; }
         
+        /* Hero Section */
         header { text-align: center; padding: 60px 20px; background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%); }
-        header img { width: 130px; height: 130px; border-radius: 50%; border: 3px solid var(--primary); object-fit: cover; margin-bottom: 20px; cursor: pointer; }
+        header img { width: 130px; height: 130px; border-radius: 50%; border: 3px solid var(--primary); object-fit: cover; margin-bottom: 20px; box-shadow: 0 0 20px rgba(16, 185, 129, 0.3); cursor: pointer; }
         header h1 { font-size: 2.5rem; margin: 0; color: var(--primary); }
+        header p { font-size: 1.2rem; opacity: 0.8; }
 
+        /* Buttons */
         .btn-group { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 20px; }
-        .btn { padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: 0.3s; cursor: pointer; border: none; }
+        .btn { padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 8px; transition: 0.3s; border: none; cursor: pointer; }
         .btn-primary { background: var(--primary); color: #000; }
         .btn-outline { border: 1px solid var(--primary); color: var(--primary); background: transparent; }
+        .btn:hover { opacity: 0.8; transform: translateY(-2px); }
 
+        /* Sections */
         .section { margin-top: 40px; }
         .section-title { font-size: 1.5rem; border-bottom: 2px solid var(--primary); display: inline-block; margin-bottom: 20px; padding-bottom: 5px; }
+        .card { background: var(--card); padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.05); }
         
-        /* Skills Grid & Interactive Buttons */
+        /* Work Experience */
+        .work-title { font-weight: bold; color: var(--primary); font-size: 1.1rem; }
+        .date { font-size: 0.85rem; opacity: 0.6; margin-bottom: 10px; display: block; }
+
+        /* Interactive Skills Grid */
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; }
-        .skill-btn { background: rgba(16, 185, 129, 0.1); padding: 15px; border-radius: 8px; text-align: center; border: 1px solid rgba(16, 185, 129, 0.3); color: var(--text); cursor: pointer; transition: 0.3s; }
+        .skill-btn { background: rgba(16, 185, 129, 0.1); padding: 15px; border-radius: 8px; text-align: center; border: 1px solid rgba(16, 185, 129, 0.3); color: var(--text); cursor: pointer; transition: 0.3s; font-weight: bold; }
         .skill-btn:hover { background: var(--primary); color: #000; transform: scale(1.05); }
 
-        /* Modal / Pop-up Styling */
+        /* Pop-up (Modal) */
         .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); align-items: center; justify-content: center; padding: 20px; }
-        .modal-content { max-width: 100%; max-height: 80vh; border-radius: 12px; box-shadow: 0 0 20px var(--primary); }
+        .modal-content { max-width: 95%; max-height: 80vh; border-radius: 12px; box-shadow: 0 0 20px var(--primary); }
         .close-modal { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; }
+
+        /* Map Styling */
+        .map-container { width: 100%; overflow: hidden; border-radius: 8px; margin-top: 15px; border: 1px solid var(--primary); }
+        .map-link { color: var(--primary); text-decoration: none; font-weight: bold; }
 
         @media (max-width: 600px) { header h1 { font-size: 1.8rem; } .btn { width: 100%; justify-content: center; } }
     </style>
@@ -38,28 +53,69 @@
 <body>
 
 <header>
-    <img src="foto-profil.jpg" alt="Prasetyo" onclick="openModal('foto-profil.jpg')">
+    <img src="foto-profil.jpg" alt="Prasetyo W. Nugroho" onclick="openModal('foto-profil.jpg', 'Foto Profil - Prasetyo')">
     <h1>Prasetyo Widyanto Nugroho</h1>
     <p>Teknisi Engineering MEP</p>
     
     <div class="btn-group">
         <a href="https://wa.me/6285117300883" class="btn btn-primary"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         <a href="mailto:prasetyown001@gmail.com" class="btn btn-outline"><i class="far fa-envelope"></i> Email</a>
+        <a href="CV-Prasetyo.pdf" download class="btn btn-outline"><i class="fas fa-file-download"></i> Download CV</a>
     </div>
 </header>
 
 <div class="container">
     <div class="section">
+        <h2 class="section-title"><i class="fas fa-user"></i> Tentang Saya</h2>
+        <div class="card">
+            <p>Spesialis Engineering MEP dengan pengalaman 1,5 tahun di Anandamaya Residence. Ahli dalam pemeliharaan sistem mekanikal, elektrikal, dan plumbing gedung tinggi.</p>
+            <p><i class="fas fa-map-marker-alt" style="color:var(--primary)"></i> 
+               <a href="https://www.google.com/maps/search/Dukuh+Margolunyu+Kidul+Jatiluhur+Kebumen" target="_blank" class="map-link">
+               Dukuh Margolunyu Kidul, No. 15, Kebumen, Jawa Tengah
+               </a>
+            </p>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15814.792370966378!2d109.4333!3d-7.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7ab8c9735d6467%3A0xc3f1738c82a033f2!2sJatiluhur%2C%20Rowokele%2C%20Kebumen%20Regency%2C%20Central%20Java!5e0!3m2!1sen!2sid!4v1700000000000" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
         <h2 class="section-title"><i class="fas fa-tools"></i> Keahlian Teknik</h2>
-        <p style="font-size: 0.9rem; opacity: 0.7; margin-bottom: 15px;">(Klik tombol di bawah untuk melihat dokumentasi)</p>
+        <p style="font-size: 0.8rem; opacity: 0.6; margin-bottom: 10px;">(Klik tombol untuk melihat foto dokumentasi kerja)</p>
         <div class="skills-grid">
-            <div class="skill-btn" onclick="openModal('foto-plumbing.jpg')">Plumbing</div>
-            <div class="skill-btn" onclick="openModal('foto-listrik.jpg')">Kelistrikan</div>
-            <div class="skill-btn" onclick="openModal('foto-stp.jpg')">STP & Water Tank</div>
-            <div class="skill-btn" onclick="openModal('foto-mcfa.jpg')">MCFA System</div>
+            <div class="skill-btn" onclick="openModal('foto-plumbing.jpg', 'Dokumentasi Plumbing')">Plumbing</div>
+            <div class="skill-btn" onclick="openModal('foto-listrik.jpg', 'Dokumentasi Kelistrikan')">Kelistrikan</div>
+            <div class="skill-btn" onclick="openModal('foto-stp.jpg', 'Dokumentasi STP & Water Tank')">STP & Water Tank</div>
+            <div class="skill-btn" onclick="openModal('foto-mcfa.jpg', 'Dokumentasi MCFA System')">MCFA System</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title"><i class="fas fa-briefcase"></i> Pengalaman Kerja</h2>
+        <div class="card">
+            <span class="work-title">Engineering MEP - Anandamaya Residence</span>
+            <span class="date">2022 - 2024</span>
+            <ul>
+                <li>Preventive Maintenance Plumbing (Steel Tank, Grease Trap, STP).</li>
+                <li>Pemeliharaan sistem proteksi kebakaran (MCFA).</li>
+                <li>Kontrol dan perbaikan panel listrik gedung.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <span class="work-title">Proyek Bangunan - Botanical Garden</span>
+            <span class="date">2021 - 2022</span>
+            <ul>
+                <li>Konstruksi pondasi ceker ayam.</li>
+                <li>Finishing dinding dan plafon gypsum.</li>
+            </ul>
         </div>
     </div>
 </div>
+
+<footer style="text-align: center; padding: 40px; opacity: 0.5; font-size: 0.8rem;">
+    © 2026 Prasetyo Widyanto Nugroho. Dibuat dengan GitHub Pages.
+</footer>
 
 <div id="myModal" class="modal">
     <span class="close-modal" onclick="closeModal()">&times;</span>
@@ -68,20 +124,16 @@
 </div>
 
 <script>
-    function openModal(imgSrc) {
+    function openModal(imgSrc, title) {
         document.getElementById("myModal").style.display = "flex";
         document.getElementById("imgPopUp").src = imgSrc;
-        document.getElementById("caption").innerHTML = "Dokumentasi Kerja - Prasetyo";
+        document.getElementById("caption").innerHTML = title;
     }
-
     function closeModal() {
         document.getElementById("myModal").style.display = "none";
     }
-
-    // Menutup modal jika user klik area hitam di luar gambar
     window.onclick = function(event) {
-        let modal = document.getElementById("myModal");
-        if (event.target == modal) {
+        if (event.target == document.getElementById("myModal")) {
             closeModal();
         }
     }
